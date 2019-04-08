@@ -1,0 +1,50 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+
+<div class="container-fluid">
+        <div class="row content">
+          <div class="col-sm-3">
+            <h4>${ drugs.DrugName }</h4>
+            <ul>
+            %if drugs.IsOpioid == '0':
+              <li>Is Opioid: No</li>
+            %else:
+              <li>Is Opioid: Yes</li>
+            %endif                   
+            </ul>
+    
+          </div>
+      
+          <div class="col-sm-9">
+
+            <table class="table table-striped table-bordered table-hover">
+                <caption style="caption-side: top">Top 10 prescribers of ${ drugs.DrugName }:</caption>
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>Specialty</th> 
+                        <th>Qty</th>                  
+                    </tr>
+                </thead>
+                <tbody>
+                    %for i in range (len(prescribers)):
+                    <%! from homepage import models as hmod %>  
+                    <tr> 
+                        <td><a href='/homepage/prescriberDetails/${ prescribers[i].id }/'>${ prescribers[i].DoctorID }</a></td>
+                        <td></td>                     
+                        <td>${ prescribers[i].Qty }</td>
+        
+                    </tr>          
+                    %endfor
+                </tbody>
+    
+            </table>
+
+    
+          </div>
+
+        </div>
+    </div>
+
+</%block>

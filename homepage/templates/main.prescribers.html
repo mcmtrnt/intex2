@@ -1,0 +1,28 @@
+<%inherit file="/homepage/templates/base_ajax.htm"/>
+
+${ django_mako_plus.links(self) }
+
+<%block name="content">
+    
+<table class="table table-striped table-bordered table-hover">
+        <caption style="caption-side: top">*Only the top 100 Prescribers are shown</caption>
+        <thead class="thead-dark">
+            <tr>
+                <th>Name</th>
+                <th>Specialty</th>
+                <th>Total Prescriptions</th>                       
+            </tr>
+        </thead>
+        <tbody>
+            %for i in range (len(prescribers)):  
+            <tr class='clickable-row' data-href=''> 
+                <td>${ prescribers[i].Fname } ${ prescribers[i].Lname }</td>                     
+                <td>${ prescribers[i].Specialty }</td>
+                <td>${ prescribers[i].TotalPrescriptions }</td>               
+            </tr>          
+            %endfor
+        </tbody>
+
+    </table>
+   
+</%block>
