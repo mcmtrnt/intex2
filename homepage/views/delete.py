@@ -12,9 +12,7 @@ def process_request(request, id):
 
     doctor = hmod.Doctor.objects.get(DoctorID = id)
     doctor.delete()
-    
-    #     roberto = hmod.Doctor.objects.filter(DoctorID = '1992994776')
-    # roberto[0].delete()
+
     
     context = {
 
