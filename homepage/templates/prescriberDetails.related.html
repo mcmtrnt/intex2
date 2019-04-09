@@ -1,0 +1,14 @@
+
+    <%inherit file="/homepage/templates/base_ajax.htm"/>
+
+    ${ django_mako_plus.links(self) }
+    
+    <%block name="content">
+        
+    <ul>
+        %for i in range (len(doctors)):                
+            <li><a href='/homepage/prescriberDetails/${ doctors[i].DoctorID }/'>${ doctors[i].Fname } ${ doctors[i].Lname }</a></li>                                                     
+        %endfor
+    </ul>
+       
+    </%block>

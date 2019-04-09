@@ -1,0 +1,31 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+%if request.user.has_perm('auth.view_analytics'):
+    <div class="container-fluid">
+        <div class="row content">
+            <div class="col-sm-3">
+                <h4>Available Analysis:</h4>
+                <ul>
+                    <li><a href='/homepage/highRiskPrescribers/'>High Risk Prescribers</a></li>
+                    <li><a href='/homepage/amIHighRisk/'>Am I High Risk</a></li>
+                    <li><a href='/homepage/similarPrescribers/'>Find Similar Prescribers</a></li>
+                    <li><a href='/homepage/visualizations/'>visualizations</a></li>
+                </ul>
+        
+            </div>
+        
+            <div class="col-sm-9">
+
+                <h4>Use the options on the left to view analytics and visualizations regarding opioid prescriptions</h4>
+
+            </div>
+
+        </div>
+    </div>
+%else:
+    <h4>You are not authorized to view Analytics</h4>
+%endif
+
+
+</%block>

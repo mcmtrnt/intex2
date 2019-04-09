@@ -40,6 +40,11 @@
                                 <a class="nav-link" href="/homepage/editPrescribers/">Edit Prescribers</a>
                             </li>
                         %endif
+                        %if request.user.has_perm('auth.view_analytics'):
+                            <li class="nav-item">
+                                <a class="nav-link" href="/homepage/analytics/">Analytics</a>
+                            </li>
+                        %endif
                     %endif
 
                     %if request.user.is_authenticated:
