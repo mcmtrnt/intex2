@@ -15,11 +15,11 @@ ${ django_mako_plus.links(self) }
         </thead>
         <tbody>
             %for i in range (len(prescribers)):  
-            <tr class='clickable-row' data-href=''> 
-                <td>${ prescribers[i].Fname } ${ prescribers[i].Lname }</td>                     
-                <td>${ prescribers[i].Specialty }</td>
-                <td>${ prescribers[i].TotalPrescriptions }</td>               
-            </tr>          
+                <tr class='clickable-row' data-href=''> 
+                    <td>${ prescribers[i].Fname } ${ prescribers[i].Lname }</td>                     
+                    <td>${ prescribers[i].Specialty }</td>
+                    <td>${ prescribers[i].TotalPrescriptions }</td>               
+                </tr>          
             %endfor
         </tbody>
 

@@ -56,3 +56,19 @@ class PrescriberForm(forms.Form):
         if self.cleaned_data.get('OpioidPrescriber') != '0' and self.cleaned_data.get('OpioidPrescriber') != '1': 
             raise forms.ValidationError("Enter a 1 or 0")
         return self.cleaned_data
+
+
+@view_function
+def prescribers(request, param):
+
+    if param != None:
+        prescribers = hmod.Doctor.objects.all().filter(Fname__contains = param) | hmod.Doctor.objects.all().filter(Lname__contains = param) | hmod.Doctor.objects.all().filter(Gender__contains = param) | hmod.Doctor.objects.all().filter(Credentials__contains = param) | hmod.Doctor.objects.all().filter(State__contains = param) | hmod.Doctor.objects.all().filter(Specialty__contains = param)
+        prescribers = prescribers[:100]
+    else:
+        prescribers = hmod.Doctor.objects.all()[:100]
+
+    context = {
+        'prescribers': prescribers,
+    }
+
+    return request.dmp.render('editPrescribers.prescribers.html', context)
