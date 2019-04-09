@@ -18,8 +18,7 @@ def process_request(request, id): #default = None?
         form = PrescriberForm(request.POST)
         if form.is_valid():
 
-            p = hmod.Doctor()
-            p.DoctorID = prescribers[0].DoctorID + 1
+            p = doctor
             p.Fname = form.cleaned_data.get('Fname')
             p.Lname = form.cleaned_data.get('Lname')
             p.Gender = form.cleaned_data.get('Gender')
@@ -29,11 +28,12 @@ def process_request(request, id): #default = None?
             p.OpioidPrescriber = form.cleaned_data.get('OpioidPrescriber')
             p.TotalPrescriptions = form.cleaned_data.get('TotalPrescriptions')
 
-            # p.save()
+            p.save()
 
-            return HttpResponseRedirect('/homepage/editExistingPrescribers/') #redirect to a receipt type page.
+            return HttpResponseRedirect('/homepage/editExistingPrescriber/') #redirect to a receipt type page.
     else:
-        form = PrescriberForm()
+        form = PrescriberForm(initial={'Fname': doctor.Fname, 'Lname': doctor.Lname, 'Gender': doctor.Gender, 'State':doctor.State, 'Credentials':doctor.Credentials, 'Specialty':doctor.Specialty, "OpioidPrescriber":doctor.OpioidPrescriber, 'TotalPrescriptions':doctor.TotalPrescriptions})
+        # form = PrescriberForm()
 
     context = {
         'form': form,
@@ -41,10 +41,7 @@ def process_request(request, id): #default = None?
         'doctor': doctor,
     }
 
-    return request.dmp.render('editPrescribers.html', context)
-
-
-
+    return request.dmp.render('editExistingPrescriber.html', context)
 
 
 
