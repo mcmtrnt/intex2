@@ -28,7 +28,7 @@ def process_request(request): #default = None?
 
             p.save()
 
-            return HttpResponseRedirect('/homepage/editPrescribers/') #redirect to a receipt type page.
+            return HttpResponseRedirect('/homepage/confirmation/') #redirect to a receipt type page.
     else:
         form = PrescriberForm()
 

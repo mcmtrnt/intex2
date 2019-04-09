@@ -30,7 +30,7 @@ def process_request(request, id): #default = None?
 
             p.save()
 
-            return HttpResponseRedirect('/homepage/editExistingPrescriber/') #redirect to a receipt type page.
+            return HttpResponseRedirect('/homepage/confirmation/') #redirect to a receipt type page.
     else:
         form = PrescriberForm(initial={'Fname': doctor.Fname, 'Lname': doctor.Lname, 'Gender': doctor.Gender, 'State':doctor.State, 'Credentials':doctor.Credentials, 'Specialty':doctor.Specialty, "OpioidPrescriber":doctor.OpioidPrescriber, 'TotalPrescriptions':doctor.TotalPrescriptions})
         # form = PrescriberForm()
