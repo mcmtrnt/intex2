@@ -13,13 +13,14 @@ def process_request(request, id):
     prescribers = hmod.DrugDoctor.objects.filter(DrugName = drugs.DrugName).order_by('-Qty')
     prescribers = prescribers[:10]
 
-    # myPrescribers = []
-    # for item in prescribers:
-    #     myPrescribers = hmod.DrugDoctor.objects.get(DoctorID = item.DoctorID)
+    myPrescribers = []
+    for item in prescribers:
+        myPrescribers += hmod.Doctor.objects.filter(DoctorID = item.DoctorID)
 
 
     context = {
         'drugs': drugs,
         'prescribers': prescribers,
+        'myPrescribers': myPrescribers,
     }
     return request.dmp.render('drugDetails.html', context)

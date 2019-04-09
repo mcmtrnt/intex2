@@ -5,12 +5,12 @@
 <div class="container-fluid">
         <div class="row content">
           <div class="col-sm-3">
-            <h4>${ drugs.DrugName }</h4>
+            <h4><b>${ drugs.DrugName }</b></h4>
             <ul>
             %if drugs.IsOpioid == '0':
-              <li>Is Opioid: No</li>
+              <li>Is Opioid: <strong>No</strong></li>
             %else:
-              <li>Is Opioid: Yes</li>
+              <li>Is Opioid: <strong>Yes</strong></li>
             %endif                   
             </ul>
     
@@ -31,8 +31,8 @@
                     %for i in range (len(prescribers)):
                     <%! from homepage import models as hmod %>  
                     <tr> 
-                        <td><a href='/homepage/prescriberDetails/${ prescribers[i].id }/'>${ prescribers[i].DoctorID }</a></td>
-                        <td></td>                     
+                        <td><a href='/homepage/prescriberDetails/${ myPrescribers[i].DoctorID }/'>${ myPrescribers[i].Fname }</a></td>
+                        <td>${ myPrescribers[i].Specialty }</td>                     
                         <td>${ prescribers[i].Qty }</td>
         
                     </tr>          

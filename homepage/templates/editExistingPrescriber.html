@@ -17,6 +17,7 @@
 
     
             <ul>
+                <!-- put this in a form to make a post request and have the form be filled out.. -->
             %for i in range (len(prescribers)):    
                 <li><a href='/homepage/editExistingPrescribers/${ prescribers[i].DoctorID }/'> ${ prescribers[i].Fname } ${ prescribers[i].Lname }</a></li>                     
             %endfor
@@ -28,11 +29,11 @@
                 <div class="wrapper">
                     <div id="formContent"> 
                         <div>
-                            <p>Add a new Prescriber</p>
+                            <p>Edit Prescriber</p>
                         </div>
                         <form method="POST">
                             ${form.as_table()}
-                            <input type="submit" value="Add">
+                            <input type="submit" value="Edit">
                         </form>                   
                                                             
                     </div>

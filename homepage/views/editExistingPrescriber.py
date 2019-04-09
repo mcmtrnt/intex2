@@ -8,8 +8,11 @@ from django.http import HttpResponseRedirect
 
 
 @view_function
-def process_request(request): #default = None?
+def process_request(request, id): #default = None?
+
     prescribers = hmod.Doctor.objects.all().order_by('-DoctorID')[:100]
+
+    doctor = hmod.Doctor.objects.get(DoctorID = id)
 
     if request.method == 'POST':
         form = PrescriberForm(request.POST)
@@ -26,18 +29,24 @@ def process_request(request): #default = None?
             p.OpioidPrescriber = form.cleaned_data.get('OpioidPrescriber')
             p.TotalPrescriptions = form.cleaned_data.get('TotalPrescriptions')
 
-            p.save()
+            # p.save()
 
-            return HttpResponseRedirect('/homepage/editPrescribers/') #redirect to a receipt type page.
+            return HttpResponseRedirect('/homepage/editExistingPrescribers/') #redirect to a receipt type page.
     else:
         form = PrescriberForm()
 
     context = {
         'form': form,
         'prescribers': prescribers,
+        'doctor': doctor,
     }
 
     return request.dmp.render('editPrescribers.html', context)
+
+
+
+
+
 
 
 class PrescriberForm(forms.Form):

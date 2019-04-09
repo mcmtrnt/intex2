@@ -30,9 +30,9 @@
                 <tbody>
                     %for i in range (len(drugs)):  
                     <tr> 
-                        <td><a href='/homepage/drugDetails/${ drugs[i].DrugName }/'>${ drugs[i].DrugName }</a></td>                     
+                        <td><a href='/homepage/drugDetails/${ mydrugs[i].id }/'>${ drugs[i].DrugName }</a></td>                     
                         <td>${ drugs[i].Qty }</td>
-                        <td>(not accurate yet) ${ drugs[i].Qty }</td>           
+                        <td>(not accurate yet) ${ drugAvg[i].Qty }</td>           
                     </tr>          
                     %endfor
                 </tbody>

@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554747794.2162151
+_modified_time = 1554818039.9697418
 _enable_loop = True
 _template_filename = 'C:/Users/Trent/intex/homepage/templates/editPrescribers.html'
 _template_uri = 'editPrescribers.html'
@@ -34,6 +34,9 @@ def render_body(context,**pageargs):
         def content():
             return render_content(context._locals(__M_locals))
         form = context.get('form', UNDEFINED)
+        range = context.get('range', UNDEFINED)
+        len = context.get('len', UNDEFINED)
+        prescribers = context.get('prescribers', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
@@ -52,10 +55,22 @@ def render_content(context,**pageargs):
         def content():
             return render_content(context)
         form = context.get('form', UNDEFINED)
+        range = context.get('range', UNDEFINED)
+        len = context.get('len', UNDEFINED)
+        prescribers = context.get('prescribers', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n<div class="container-fluid">\r\n    <div class="row content">\r\n        <div class="col-sm-3">\r\n            <h4>List all prescibers here they could edit</h4>           \r\n    \r\n            <ul>\r\n                <li>presciber</li>\r\n                <li>presciber</li>\r\n                <li>presciber</li>\r\n                <li>presciber</li>\r\n            </ul>\r\n    \r\n        </div>\r\n        <div class="col-sm-9">\r\n            <div class="content">\r\n                <div class="wrapper">\r\n                    <div id="formContent"> \r\n                        <div>\r\n                            <p></p>\r\n                        </div>\r\n                        <form method="POST">\r\n                            ')
+        __M_writer('\r\n<div class="container-fluid">\r\n    <div class="row content">\r\n        <div class="col-sm-3">\r\n            <h4>Prescribers you may edit:</h4> \r\n\r\n            \r\n            <div class="input-group">\r\n                <input type="text" class="form-control" id="prescriberInput" placeholder="Search..">\r\n                <span class="input-group-btn">\r\n                    <button class="btn btn-primary" id="prescriberBtn">Search</button>\r\n                </span>\r\n            </div>\r\n\r\n\r\n    \r\n            <ul>\r\n                <!-- put this in a form to make a post request and have the form be filled out.. -->\r\n')
+        for i in range (len(prescribers)):    
+            __M_writer("                <li><a href='/homepage/editPrescribers/")
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)( prescribers[i].DoctorID ))
+            __M_writer("/'> ")
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)( prescribers[i].Fname ))
+            __M_writer(' ')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)( prescribers[i].Lname ))
+            __M_writer('</a></li>                     \r\n')
+        __M_writer('            </ul>\r\n    \r\n        </div>\r\n        <div class="col-sm-9">\r\n            <div class="content">\r\n                <div class="wrapper">\r\n                    <div id="formContent"> \r\n                        <div>\r\n                            <p>Add a new Prescriber</p>\r\n                        </div>\r\n                        <form method="POST">\r\n                            ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(form.as_table()))
-        __M_writer('\r\n                            <input type="submit" value="Submit">\r\n                        </form>                   \r\n                                                            \r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n    </div>\r\n</div>\r\n\r\n')
+        __M_writer('\r\n                            <input type="submit" value="Add">\r\n                        </form>                   \r\n                                                            \r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n    </div>\r\n</div>\r\n\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -63,6 +78,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Trent/intex/homepage/templates/editPrescribers.html", "uri": "editPrescribers.html", "source_encoding": "utf-8", "line_map": {"29": 0, "38": 1, "48": 3, "56": 3, "57": 25, "58": 25, "64": 58}}
+{"filename": "C:/Users/Trent/intex/homepage/templates/editPrescribers.html", "uri": "editPrescribers.html", "source_encoding": "utf-8", "line_map": {"29": 0, "41": 1, "51": 3, "62": 3, "63": 21, "64": 22, "65": 22, "66": 22, "67": 22, "68": 22, "69": 22, "70": 22, "71": 24, "72": 35, "73": 35, "79": 73}}
 __M_END_METADATA
 """
