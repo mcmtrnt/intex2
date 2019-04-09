@@ -17,6 +17,15 @@
                 <li>Location: <strong>${ prescriber.State }</strong></li>
                 <li>Specialty: <strong>${ prescriber.Specialty }</strong></li>
             </ul>
+
+            %if request.user.has_perm('auth.view_analytics'):
+                <input type="text" class="form-control" style="display: none" id="prescriberInput" value="${prescriber.DoctorID}">
+                <input type="submit" value="See Related Doctors" id="seeRelated">
+            %endif
+   
+            <ul id='relatedDoctors'>
+                <li></li>
+            </ul>
     
           </div>
       
@@ -44,7 +53,7 @@
                     <tr> 
                         <td><a href='/homepage/drugDetails/${ mydrugs[i].id }/'>${ drugs[i].DrugName }</a></td>                     
                         <td>${ drugs[i].Qty }</td>
-                        <td>(not accurate yet) ${ drugAvg[i].Qty }</td>           
+                        <td>${ drugAvg[i].Qty }</td>           
                     </tr>          
                     %endfor
                 </tbody>

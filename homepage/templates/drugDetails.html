@@ -13,6 +13,15 @@
               <li>Is Opioid: <strong>Yes</strong></li>
             %endif                   
             </ul>
+
+            %if request.user.has_perm('auth.view_analytics'):
+              <input type="text" class="form-control" style="display: none" id="drugInput" value="${drugs.DrugName}">
+              <input type="submit" value="See Related Drugs" id="seeRelated">
+            %endif
+   
+            <ul id='relatedDrugs'>
+                <li></li>
+            </ul>
     
           </div>
       
