@@ -25,21 +25,33 @@ def process_request(request): #give them defaults
     return request.dmp.render('main.html', context)
 
 
+@view_function
+def prescribers(request, param):
 
-def get_prescribers(request, param):
-    print("got here!")
-    prescribers = hmod.Doctor.objects.all().filter(Fname__contains = param) | hmod.Doctor.objects.all().filter(Lname__contains = param) | hmod.Doctor.objects.all().filter(Gender__contains = param) | hmod.Doctor.objects.all().filter(Credentials__contains = param) | hmod.Doctor.objects.all().filter(State__contains = param) | hmod.Doctor.objects.all().filter(Specialty__contains = param)
-    prescribers = prescribers[:100]
+    if param != None:
+        prescribers = hmod.Doctor.objects.all().filter(Fname__contains = param) | hmod.Doctor.objects.all().filter(Lname__contains = param) | hmod.Doctor.objects.all().filter(Gender__contains = param) | hmod.Doctor.objects.all().filter(Credentials__contains = param) | hmod.Doctor.objects.all().filter(State__contains = param) | hmod.Doctor.objects.all().filter(Specialty__contains = param)
+        prescribers = prescribers[:100]
+    else:
+        prescribers = hmod.Doctor.objects.all()[:100]
 
     context = {
         'prescribers': prescribers,
-        # 'opioids': opioids,
     }
 
     return request.dmp.render('main.prescribers.html', context)
 
 
-def get_drugs(request, param):
-    opioids = hmod.Drug.objects.all().filter(DrugName__contains = param) | hmod.Drug.objects.all().filter(IsOpioid__contains = param)
-    opioids = opioids[:100]
-    return opioids
+@view_function
+def drugs(request, param):
+    
+    if param != None:
+        opioids = hmod.Drug.objects.all().filter(DrugName__contains = param) | hmod.Drug.objects.all().filter(IsOpioid__contains = param)
+        opioids = opioids[:100]
+    else:
+        opioids = hmod.Drug.objects.all()[:100]
+
+    context = {
+        'opioids': opioids,
+    }
+
+    return request.dmp.render('main.drugs.html', context)
