@@ -5,7 +5,11 @@
 <div class="container-fluid">
         <div class="row content">
           <div class="col-sm-3">
-            <h4><b>${ prescriber.Fname } ${ prescriber.Lname }</b></h4>           
+            %if request.user.has_perm('homepage.view_doctor'):
+                <h4><b>${ prescriber.Fname } ${ prescriber.Lname }</b></h4>
+            %else:
+                <h4><b>${ prescriber.DoctorID }</b></h4>
+            %endif
 
             <ul>
                 <li>Gender: <strong>${ prescriber.Gender }</strong></li>
@@ -19,11 +23,19 @@
           <div class="col-sm-9">
 
             <table class="table table-striped table-bordered table-hover">
-                <caption style="caption-side: top">Drugs prescribed by ${ prescriber.Fname } ${ prescriber.Lname }:</caption>
+                %if request.user.has_perm('homepage.view_doctor'):
+                    <caption style="caption-side: top">Drugs prescribed by ${ prescriber.Fname } ${ prescriber.Lname }:</caption>
+                %else:
+                    <caption style="caption-side: top">Drugs prescribed by ${ prescriber.DoctorID }:</caption>
+                %endif
                 <thead class="thead-dark">
                     <tr>
                         <th>Name</th>
-                        <th>Qty prescribed by ${ prescriber.Fname } ${ prescriber.Lname }</th>  
+                        %if request.user.has_perm('homepage.view_doctor'):
+                            <th>Qty prescribed by ${ prescriber.Fname } ${ prescriber.Lname }</th>
+                        %else:
+                            <th>Qty prescribed by ${ prescriber.DoctorID }</th>
+                        %endif
                         <th>Avg Qty prescribed by all doctors</th>                  
                     </tr>
                 </thead>

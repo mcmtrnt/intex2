@@ -1,52 +1,60 @@
 <%inherit file="base.htm" />
 
 <%block name="content">
-<div class="container-fluid">
-    <div class="row content">
-        <div class="col-sm-3">
-            <h4>Prescribers you may edit:</h4> 
+%if request.user.has_perm('auth.change_user'):
+    <div class="container-fluid">
+        <div class="row content">
+            <div class="col-sm-3">
+                <h4>Prescribers you may edit:</h4> 
 
-            
-            <div class="input-group">
-                <input type="text" class="form-control" id="prescriberInput" placeholder="Search..">
-                <span class="input-group-btn">
-                    <button class="btn btn-primary" id="prescriberBtn">Search</button>
-                </span>
+                %if request.user.has_perm('auth.can_search'):
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="prescriberInput" placeholder="Search..">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" id="prescriberBtn">Search</button>
+                        </span>
+                    </div>
+                %endif
+
+
+        
+                <ul>
+                %for i in range (len(prescribers)):    
+                    <li><a href='/homepage/editExistingPrescriber/${ prescribers[i].DoctorID }/'> ${ prescribers[i].Fname } ${ prescribers[i].Lname }</a></li>                     
+                %endfor
+                </ul>
+        
             </div>
-
-
-    
-            <ul>
-                <!-- put this in a form to make a post request and have the form be filled out.. -->
-            %for i in range (len(prescribers)):    
-                <li><a href='/homepage/editExistingPrescriber/${ prescribers[i].DoctorID }/'> ${ prescribers[i].Fname } ${ prescribers[i].Lname }</a></li>                     
-            %endfor
-            </ul>
-    
-        </div>
-        <div class="col-sm-9">
-            <div class="content">
-                <div class="wrapper">
-                    <div id="formContent"> 
-                        <div>
-                            <p>Edit ${ doctor.Fname } ${ doctor.Lname }</p>
-                        </div>
-                        <form method="POST">
-                            ${form.as_table()}
-                            <input type="submit" value="Edit">
+            <div class="col-sm-9">
+                <div class="content">
+                    <div class="wrapper">
+                        <div id="formContent"> 
                             <div>
-                                <button class="btn btn-danger"><a href='/homepage/delete/${ doctor.DoctorID }/'>Delete</a></button>
+                                <p>Edit ${ doctor.Fname } ${ doctor.Lname }</p>
                             </div>
-                            <div><p></p></div>
-                            
-                        </form>                   
-                                                            
+                            <form method="POST">
+                                ${form.as_table()}
+                                <input type="submit" value="Edit">
+                                <div>
+                                    <button class="btn btn-danger"><a href='/homepage/delete/${ doctor.DoctorID }/'>Delete</a></button>
+                                </div>
+                                <div><p></p></div>
+                                
+                            </form>                   
+                                                                
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
+        </div>
     </div>
-</div>
+%else:
+    <div>
+        <p>
+            You are not authorized to edit prescribers
+        </p>
+    </div>
+%endif
 
 </%block>

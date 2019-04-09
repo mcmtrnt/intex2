@@ -14,7 +14,7 @@ def process_request(request):
         if form.is_valid():
             user = authenticate(username=form.cleaned_data.get('login'), password=form.cleaned_data.get('password'))
             login(request, user)
-            return HttpResponseRedirect('/homepage/index/') #redirect to homepage
+            return HttpResponseRedirect('/homepage/main/') #redirect to homepage
     else:
         form = LoginForm()
     return request.dmp.render('login.html', {'form':form})
