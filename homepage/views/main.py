@@ -9,11 +9,6 @@ from django import forms
 @view_function
 def process_request(request): #give them defaults
 
-            # prescribers = hmod.Prescriber.objects.all().filter(Fname__contains = param) | hmod.Prescriber.objects.all().filter(Lname__contains = param) | hmod.Prescriber.objects.all().filter(Gender__contains = param) | hmod.Prescriber.objects.all().filter(Credentials__contains = param) | hmod.Prescriber.objects.all().filter(State__contains = param) | hmod.Prescriber.objects.all().filter(Specialty__contains = param)
-            # prescribers = prescribers[:100]
-                
-            # opioids = hmod.Opioids.objects.all()[:100]
-
 
     prescribers = hmod.Doctor.objects.all()[:100]
     opioids = hmod.Drug.objects.all()[:100]

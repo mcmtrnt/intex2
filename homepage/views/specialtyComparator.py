@@ -20,7 +20,7 @@ def process_request(request):
 
             querystring = {"api-version":"2.0","details":"true"}
 
-            payload = "{\r\n  \"Inputs\": {\r\n    \"input1\": {\r\n      \"ColumnNames\": [\r\n        \"DoctorID\"\r\n      ],\r\n      \"Values\": [\r\n        [\r\n          \"1003002320\"\r\n        ]\r\n      ]\r\n    }\r\n  }"
+            payload = "{\r\n  \"Inputs\": {\r\n    \"input1\": {\r\n      \"ColumnNames\": [\r\n        \"DoctorID\"\r\n      ],\r\n      \"Values\": [\r\n        [\r\n          \"" + DoctorID + "\"\r\n        ]\r\n      ]\r\n    }\r\n  }"
             headers = {
             'Authorization': "bearer 6rw7cCtENKlbnDEzAKtct4hEUrLrHNftvJICZEenbbSFaQg6ffP2OERsQ1Xp0ornbkdkebYzXPmJttqVqj4hQA==",
             'Content-Type': "application/json",

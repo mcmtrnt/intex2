@@ -57,19 +57,19 @@
 
                         <td>
                             ${ drugs[i].Qty }
-                            <div style="float:right;"><a href='/homepage/editDrug/${ prescriber.DoctorID }/${ drugs[i].DrugName }/'><button class="btn btn-primary" id="editBtn">Edit</button></a></div>    
-                            </td>
-                        <td>${ drugAvg[i].Qty }</td>          
+                            %if request.user.has_perm('auth.change_user'):
+                                <div style="float:right;"><a href='/homepage/editDrug/${ prescriber.DoctorID }/${ drugs[i].DrugName }/'><button class="btn btn-primary" id="editBtn">Edit</button></a></div>    
+                            %endif
+                        </td>
+                        <td>${ drugAvg[i] }</td>          
                     </tr>          
                     %endfor
                 </tbody>
     
             </table>
-
-            <a href='/homepage/addDrug/${ prescriber.DoctorID }/'><button class="btn btn-primary" id="addBtn">Add New Prescription</button></a>
-
-            
-    
+            %if request.user.has_perm('auth.change_user'):
+                <a href='/homepage/addDrug/${ prescriber.DoctorID }/'><button class="btn btn-primary" id="addBtn">Add New Prescription</button></a>        
+            %endif
           </div>
 
         </div>
