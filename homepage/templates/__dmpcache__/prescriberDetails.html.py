@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554932589.903198
+_modified_time = 1554933768.6891854
 _enable_loop = True
 _template_filename = 'C:/Users/Trent/intex/homepage/templates/prescriberDetails.html'
 _template_uri = 'prescriberDetails.html'
@@ -30,15 +30,15 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        drugs = context.get('drugs', UNDEFINED)
         prescriber = context.get('prescriber', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         len = context.get('len', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
+        drugs = context.get('drugs', UNDEFINED)
         range = context.get('range', UNDEFINED)
-        request = context.get('request', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         mydrugs = context.get('mydrugs', UNDEFINED)
+        request = context.get('request', UNDEFINED)
         drugAvg = context.get('drugAvg', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
@@ -54,15 +54,15 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        drugs = context.get('drugs', UNDEFINED)
         prescriber = context.get('prescriber', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         len = context.get('len', UNDEFINED)
         def content():
             return render_content(context)
+        drugs = context.get('drugs', UNDEFINED)
         range = context.get('range', UNDEFINED)
-        request = context.get('request', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         mydrugs = context.get('mydrugs', UNDEFINED)
+        request = context.get('request', UNDEFINED)
         drugAvg = context.get('drugAvg', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n<div class="container-fluid">\r\n        <div class="row content">\r\n          <div class="col-sm-3">\r\n')
