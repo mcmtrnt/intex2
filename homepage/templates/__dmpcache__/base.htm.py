@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554853226.4838645
+_modified_time = 1554859000.242222
 _enable_loop = True
 _template_filename = 'C:/Users/Trent/intex/homepage/templates/base.htm'
 _template_uri = 'base.htm'
@@ -19,9 +19,9 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        request = context.get('request', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
         self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('<!DOCTYPE html>\r\n<html>\r\n    <meta charset="UTF-8">\r\n    <head>\r\n\r\n        <title>Opioid Stats</title>\r\n        <link rel="icon" href="/static/homepage/media/opioid.ico/">\r\n\r\n')
@@ -47,7 +47,7 @@ def render_body(context,**pageargs):
             context['self'].content(**pageargs)
         
 
-        __M_writer('\r\n        </main>\r\n\r\n        <footer>\r\n            \r\n        </footer>\r\n\r\n    </body>\r\n</html>\r\n')
+        __M_writer('\r\n        </main>\r\n\r\n        <footer>\r\n                <div>\r\n                    <a class="btn btn-primary" style="opacity: 0;" href="/homepage/easterEgg/" role="button">EasterEgg</a>\r\n                </div>\r\n        </footer>\r\n\r\n    </body>\r\n</html>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
