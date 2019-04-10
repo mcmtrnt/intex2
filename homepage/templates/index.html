@@ -1,10 +1,21 @@
 <%inherit file="base.htm" />
 
 <%block name="content">
-    <div class="content">
-        <p>The opioid crisis is devastating communities across America.</p>
-        <hr>
-        <p>Use this site to view data and analytics about prescribers and opiods.</p>
 
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Gain insight into the Opioid Crisis</h1>
+          <p class="lead">Use this site to view data and analytics about prescribers and opiods</p>
+          %if request.user.is_authenticated:
+            <div>
+                <a class="btn btn-primary" href="/homepage/main/" role="button">Get Started</a>
+            </div>
+        %else:          
+            <div>
+                <a class="btn btn-primary" href="/homepage/login/" role="button">Login</a>
+            </div>
+        %endif   
+        </div>
     </div>
+
 </%block>

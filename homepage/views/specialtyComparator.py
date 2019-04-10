@@ -6,8 +6,6 @@ from django.contrib.auth.models import User
 from django.db.models import Avg
 import requests
 from django import forms
-import json
-from decimal import Decimal
 
 @view_function
 def process_request(request):
@@ -18,16 +16,16 @@ def process_request(request):
 
             DoctorID = form.cleaned_data.get('DoctorID')
 
-            url = "https://ussouthcentral.services.azureml.net/workspaces/1280ec3736a7452db2ad1b4ffdf4fee8/services/65de22ff44dc4bf6b1e56d55b5236af6/execute"
+            url = "https://ussouthcentral.services.azureml.net/workspaces/1280ec3736a7452db2ad1b4ffdf4fee8/services/fe553bad406e451fa2dd3fb3995f32db/execute"
 
             querystring = {"api-version":"2.0","details":"true"}
 
-            payload = "{\r\n  \"Inputs\": {\r\n    \"input1\": {\r\n      \"ColumnNames\": [\r\n        \"DoctorID\"\r\n      ],\r\n      \"Values\": [\r\n        [\r\n          \"" + DoctorID + "\"\r\n        ]\r\n      ]\r\n    }\r\n  }\r\n"
+            payload = "{\r\n  \"Inputs\": {\r\n    \"input1\": {\r\n      \"ColumnNames\": [\r\n        \"DoctorID\"\r\n      ],\r\n      \"Values\": [\r\n        [\r\n          \"1003002320\"\r\n        ]\r\n      ]\r\n    }\r\n  }"
             headers = {
-            'Authorization': "bearer p6rA25eaE9Z2f8TP420AoZWdWTZm8DcRvGv919hSQr7gz/PyCE+vxYgcc3EE0WInMf7FPKmke3qsLoEdpzOEyA==",
+            'Authorization': "bearer 6rw7cCtENKlbnDEzAKtct4hEUrLrHNftvJICZEenbbSFaQg6ffP2OERsQ1Xp0ornbkdkebYzXPmJttqVqj4hQA==",
             'Content-Type': "application/json",
             'cache-control': "no-cache",
-            'Postman-Token': "17067474-0e96-4020-8136-23fa599efe21"
+            'Postman-Token': "79695986-3c0e-4b62-a7ce-82217bd07a3b"
             }
 
             response = requests.request("POST", url, data=payload, headers=headers, params=querystring)
@@ -42,33 +40,30 @@ def process_request(request):
             valueList = values.split(',')
             print(valueList)
 
-            doctors = []
-            for i in range(len(valueList)):
-                doctors += hmod.Doctor.objects.filter(DoctorID = int(valueList[i]))
+            # specialties = []
+            # for i in range(len(valueList)):
+            #     specialties += hmod.Doctor.objects.filter(DoctorID = int(valueList[i]))
             
         else:
-            doctors = []
+            valueList = []
             
     else:
         form = PrescriberForm()  
-        doctors = []      
+        valueList = []      
 
 
     context = {
         'form': form,
-        'doctors': doctors,
+        'valueList': valueList,
     }
 
-    return request.dmp.render('similarPrescribers.html', context)
+    return request.dmp.render('specialtyComparator.html', context)
 
 
 class PrescriberForm(forms.Form):
-    DoctorID = forms.CharField(label='DoctorID', max_length=100)
+    DoctorID = forms.CharField(label='Prescriber ID', max_length=100)
     
     def clean(self):
         if len(self.cleaned_data.get('DoctorID')) != 10: 
           raise forms.ValidationError("Please enter a valid DoctorID")
         return self.cleaned_data
-
-
-

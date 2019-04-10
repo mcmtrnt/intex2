@@ -47,7 +47,6 @@ def process_request(request, id): #default = None?
 
 
 class PrescriberForm(forms.Form):
-    #DoctorID = forms.CharField(label='DoctorID', max_length=100)
     Fname = forms.CharField(label='First Name', max_length=100)
     Lname = forms.CharField(label='Last Name', max_length=100)
     Gender = forms.CharField(label='Gender', max_length=100)
@@ -59,8 +58,19 @@ class PrescriberForm(forms.Form):
 
     
     def clean(self):
+
+        if self.cleaned_data.get('Gender') != 'M' and self.cleaned_data.get('Gender') != 'F': 
+          raise forms.ValidationError("Please enter gender as M or F")
+
+        if len(self.cleaned_data.get('State')) > 3: 
+          raise forms.ValidationError("Please enter a state abbreviation")
+
         if self.cleaned_data.get('OpioidPrescriber') != '0' and self.cleaned_data.get('OpioidPrescriber') != '1': 
             raise forms.ValidationError("Enter a 1 or 0")
+
+        if int(self.cleaned_data.get('TotalPrescriptions')) < 0: 
+          raise forms.ValidationError("Please enter a valid number of Total Prescriptions")
+
         return self.cleaned_data
 
 

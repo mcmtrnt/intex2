@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554737194.763405
+_modified_time = 1554853141.737573
 _enable_loop = True
 _template_filename = 'C:/Users/Trent/intex/homepage/templates/index.html'
 _template_uri = 'index.html'
@@ -30,6 +30,7 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        request = context.get('request', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
         __M_writer = context.writer()
@@ -47,10 +48,16 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        request = context.get('request', UNDEFINED)
         def content():
             return render_content(context)
         __M_writer = context.writer()
-        __M_writer('\r\n    <div class="content">\r\n        <p>The opioid crisis is devastating communities across America.</p>\r\n        <hr>\r\n        <p>Use this site to view data and analytics about prescribers and opiods.</p>\r\n\r\n    </div>\r\n')
+        __M_writer('\r\n\r\n    <div class="jumbotron jumbotron-fluid">\r\n        <div class="container">\r\n          <h1 class="display-4">Gain insight into the Opioid Crisis</h1>\r\n          <p class="lead">Use this site to view data and analytics about prescribers and opiods</p>\r\n')
+        if request.user.is_authenticated:
+            __M_writer('            <div>\r\n                <a class="btn btn-primary" href="/homepage/main/" role="button">Get Started</a>\r\n            </div>\r\n')
+        else:          
+            __M_writer('            <div>\r\n                <a class="btn btn-primary" href="/homepage/login/" role="button">Login</a>\r\n            </div>\r\n')
+        __M_writer('        </div>\r\n    </div>\r\n\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -58,6 +65,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Trent/intex/homepage/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"29": 0, "36": 1, "41": 10, "47": 3, "53": 3, "59": 53}}
+{"filename": "C:/Users/Trent/intex/homepage/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"29": 0, "37": 1, "42": 21, "48": 3, "55": 3, "56": 9, "57": 10, "58": 13, "59": 14, "60": 18, "66": 60}}
 __M_END_METADATA
 """

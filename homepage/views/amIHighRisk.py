@@ -53,6 +53,9 @@ def process_request(request):
                 atRisk = 'No'
             else:
                 atRisk = 'Yes'
+        else:      
+            chance = ""
+            atRisk = ""
             
     else:
         form = PrescriberForm()        
@@ -69,7 +72,7 @@ def process_request(request):
 
 
 class PrescriberForm(forms.Form):
-    Gender = forms.CharField(label='Gender', max_length=100)
+    Gender = forms.CharField(label='Gender (M/F)', max_length=100)
     State = forms.CharField(label='State (ex. UT)', max_length=100)
     Credentials = forms.CharField(label='Credentials', max_length=100)
     Specialty = forms.CharField(label='Specialty', max_length=100)
@@ -77,4 +80,13 @@ class PrescriberForm(forms.Form):
 
     
     def clean(self):
+        if self.cleaned_data.get('Gender') != 'M' and self.cleaned_data.get('Gender') != 'F': 
+          raise forms.ValidationError("Please enter gender as M or F")
+
+        if len(self.cleaned_data.get('State')) > 3: 
+          raise forms.ValidationError("Please enter a state abbreviation")
+
+        if int(self.cleaned_data.get('TotalPrescriptions')) < 0: 
+          raise forms.ValidationError("Please enter a valid number of Total Prescriptions")
+
         return self.cleaned_data

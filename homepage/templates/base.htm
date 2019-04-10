@@ -45,6 +45,13 @@
                                 <a class="nav-link" href="/homepage/analytics/">Analytics</a>
                             </li>
                         %endif
+                    %else:
+                        <li class="nav-item">
+                            <a class="nav-link" href=""></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=""></a>
+                        </li>
                     %endif
 
                     %if request.user.is_authenticated:
