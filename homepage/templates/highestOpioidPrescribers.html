@@ -30,6 +30,7 @@
                         <tr>
                             <th>DoctorID</th>
                             <th>Number of Opioids Prescribed</th>
+                            <th>Prescriber Score</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,6 +38,7 @@
                         <tr> 
                             <td><a href='/homepage/prescriberDetails/${ highest[i].DoctorID }/'>${ highest[i].DoctorID }</a></td>
                             <td>${ highest[i].NumOpioids }</td>
+                            <td>${ highest[i].PrescriberScore }</td>
                         </tr>          
                         %endfor
                     </tbody>

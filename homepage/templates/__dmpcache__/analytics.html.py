@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554938061.896759
+_modified_time = 1554939117.1513238
 _enable_loop = True
 _template_filename = 'C:/Users/Trent/intex/homepage/templates/analytics.html'
 _template_uri = 'analytics.html'
@@ -53,7 +53,7 @@ def render_content(context,**pageargs):
         __M_writer = context.writer()
         __M_writer('\r\n')
         if request.user.has_perm('auth.view_analytics'):
-            __M_writer('    <div class="container-fluid">\r\n        <div class="row content">\r\n            <div class="col-sm-3">\r\n                <h4>Available Analysis:</h4>\r\n                <ul>\r\n                    <li><a href=\'/homepage/amIHighRisk/\'>Am I High Risk</a></li>\r\n')
+            __M_writer('    <div class="container-fluid">\r\n        <div class="row content">\r\n            <div class="col-sm-3">\r\n                <h4>Available Analysis:</h4>\r\n                <ul>\r\n                    <li><a href=\'/homepage/highestOpioidPrescribers/\'>Highest Opioid Prescribers</a></li>\r\n                    <li><a href=\'/homepage/amIHighRisk/\'>Am I High Risk</a></li>\r\n')
             if request.user.has_perm('homepage.view_doctor'):
                 __M_writer("                        <li><a href='/homepage/similarPrescribers/'>Find Similar Prescribers</a></li>\r\n                        <li><a href='/homepage/visualizations/'>Individual Visualizations</a></li>\r\n")
             __M_writer('                    <li><a href=\'/homepage/maps/\'>Map of Overall Prescriptions/Opiods</a></li>\r\n                    <li><a href=\'/homepage/mapDeaths/\'>Map of Opioid Related Deaths</a></li>\r\n                    <li><a href=\'/homepage/specialtyComparator/\'>Specialty Comparator</a></li>\r\n                    <li><a href=\'/homepage/specialtyVisualization/\'>Specialty Visualization</a></li>\r\n                    <li><a href=\'/homepage/prescribersVisualization/\'>Prescribers Visualization</a></li>\r\n                </ul>\r\n        \r\n            </div>\r\n        \r\n            <div class="col-sm-9">\r\n\r\n                <h4>Use the options on the left to view analytics and visualizations regarding opioid prescriptions</h4>\r\n\r\n            </div>\r\n\r\n        </div>\r\n    </div>\r\n')
@@ -67,6 +67,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Trent/intex/homepage/templates/analytics.html", "uri": "analytics.html", "source_encoding": "utf-8", "line_map": {"29": 0, "37": 1, "47": 3, "54": 3, "55": 4, "56": 5, "57": 11, "58": 12, "59": 15, "60": 32, "61": 33, "62": 35, "68": 62}}
+{"filename": "C:/Users/Trent/intex/homepage/templates/analytics.html", "uri": "analytics.html", "source_encoding": "utf-8", "line_map": {"29": 0, "37": 1, "47": 3, "54": 3, "55": 4, "56": 5, "57": 12, "58": 13, "59": 16, "60": 33, "61": 34, "62": 36, "68": 62}}
 __M_END_METADATA
 """
