@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554839878.6259995
+_modified_time = 1554854209.7002962
 _enable_loop = True
 _template_filename = 'C:/Users/Trent/intex/homepage/templates/highRiskPrescribers.html'
 _template_uri = 'highRiskPrescribers.html'
@@ -49,7 +49,7 @@ def render_content(context,**pageargs):
         def content():
             return render_content(context)
         __M_writer = context.writer()
-        __M_writer('\r\n\r\n<div class="container-fluid">\r\n    <div class="row content">\r\n        <div class="col-sm-3">\r\n            <h4>Available Analysis:</h4>\r\n            <ul>\r\n                <li><a href=\'/homepage/highRiskPrescribers/\'>High Risk Prescribers</a></li>\r\n                <li><a href=\'/homepage/amIHighRisk/\'>Am I High Risk</a></li>\r\n                <li><a href=\'/homepage/similarPrescribers/\'>Find Similar Prescribers</a></li>\r\n            </ul>\r\n    \r\n        </div>\r\n      \r\n        <div class="col-sm-9">\r\n\r\n            <table class="table table-striped table-bordered table-hover">\r\n\r\n                <caption style="caption-side: top"></caption>\r\n\r\n                <thead class="thead-dark">\r\n                    <tr>\r\n                        <th></th>\r\n                    </tr>\r\n                </thead>\r\n\r\n                <tbody>\r\n                    <tr>\r\n                        <td></td>\r\n                    </tr>\r\n                </tbody>\r\n    \r\n            </table>\r\n\r\n        </div>\r\n\r\n    </div>\r\n</div>\r\n\r\n\r\n')
+        __M_writer('\r\n\r\n<div class="container-fluid">\r\n    <div class="row content">\r\n        <div class="col-sm-3">\r\n            <h4>Available Analysis:</h4>\r\n            <ul>\r\n                <li><a href=\'/homepage/highRiskPrescribers/\'>High Risk Prescribers</a></li>\r\n                <li><a href=\'/homepage/amIHighRisk/\'>Am I High Risk</a></li>\r\n                <li><a href=\'/homepage/similarPrescribers/\'>Find Similar Prescribers</a></li>\r\n                <li><a href=\'/homepage/visualizations/\'>Visualizations</a></li>\r\n                <li><a href=\'/homepage/maps/\'>Maps</a></li>\r\n                <li><a href=\'/homepage/specialtyComparator/\'>Specialty Comparator</a></li>\r\n            </ul>\r\n    \r\n        </div>\r\n      \r\n        <div class="col-sm-9">\r\n\r\n        </div>\r\n\r\n    </div>\r\n</div>\r\n\r\n\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()

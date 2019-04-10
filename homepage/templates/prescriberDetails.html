@@ -19,8 +19,10 @@
             </ul>
 
             %if request.user.has_perm('auth.view_analytics'):
-                <input type="text" class="form-control" style="display: none" id="prescriberInput" value="${prescriber.DoctorID}">
-                <input type="submit" value="See Related Doctors" id="seeRelated">
+                %if request.user.has_perm('homepage.view_doctor'):
+                    <input type="text" class="form-control" style="display: none" id="prescriberInput" value="${prescriber.DoctorID}">
+                    <input type="submit" value="See Related Doctors" id="seeRelated">
+                %endif
             %endif
    
             <ul id='relatedDoctors'>

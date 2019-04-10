@@ -14,4 +14,4 @@ def process_request(request):
 
     }
 
-    return request.dmp.render('highRiskPrescribers.html', context)
+    return request.dmp.render('maps.html', context)

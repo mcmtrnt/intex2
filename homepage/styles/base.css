@@ -14,6 +14,10 @@ header {
     text-align: center;
 }
 
+li {
+    list-style-type: none;
+  }
+
 header > .title {
     display: inline-block;
     color: #3771A1;

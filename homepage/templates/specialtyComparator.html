@@ -21,7 +21,7 @@
             </div>
         
             <div class="col-sm-6">
-                    <caption style="caption-side: top">Enter a Prescriber's ID to see similar Prescribers</caption>
+                    <caption style="caption-side: top">Enter a Prescriber's ID which specialty they relate to most</caption>
                 <div class="content">
                     <div class="wrapper">
                         <div id="formContent">    
@@ -37,14 +37,13 @@
             </div>
 
             <div class="col-sm-3">
-                <h4>Similar Prescribers:</h4>
+                <h4>Most Similar Specialty:</h4>
 
                 <ul>
-                %for i in range (len(doctors)):                
-                    <li><a href='/homepage/prescriberDetails/${ doctors[i].DoctorID }/'>${ doctors[i].Fname } ${ doctors[i].Lname }</a></li>                                                     
+                %for i in range (3, len(valueList)):                
+                    <li>${ valueList[i] }</li>                                                     
                 %endfor
-                </ul>
-                
+                </ul>                
 
             </div>
 

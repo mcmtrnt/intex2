@@ -55,6 +55,16 @@ class PrescriberForm(forms.Form):
     def clean(self):
         if self.cleaned_data.get('OpioidPrescriber') != '0' and self.cleaned_data.get('OpioidPrescriber') != '1': 
             raise forms.ValidationError("Enter a 1 or 0")
+
+        if self.cleaned_data.get('Gender') != 'M' and self.cleaned_data.get('Gender') != 'F': 
+          raise forms.ValidationError("Please enter gender as M or F")
+
+        if len(self.cleaned_data.get('State')) > 3: 
+          raise forms.ValidationError("Please enter a state abbreviation")
+
+        if int(self.cleaned_data.get('TotalPrescriptions')) < 0: 
+          raise forms.ValidationError("Please enter a valid number of Total Prescriptions")
+          
         return self.cleaned_data
 
 
