@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554833124.5139425
+_modified_time = 1554860678.0087776
 _enable_loop = True
 _template_filename = 'C:/Users/Trent/intex/homepage/templates/main.prescribers.html'
 _template_uri = 'main.prescribers.html'
@@ -30,12 +30,13 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        prescribers = context.get('prescribers', UNDEFINED)
-        range = context.get('range', UNDEFINED)
-        len = context.get('len', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
         self = context.get('self', UNDEFINED)
+        len = context.get('len', UNDEFINED)
+        request = context.get('request', UNDEFINED)
+        range = context.get('range', UNDEFINED)
+        prescribers = context.get('prescribers', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( django_mako_plus.links(self) ))
@@ -52,24 +53,36 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        prescribers = context.get('prescribers', UNDEFINED)
-        range = context.get('range', UNDEFINED)
-        len = context.get('len', UNDEFINED)
         def content():
             return render_content(context)
         self = context.get('self', UNDEFINED)
+        len = context.get('len', UNDEFINED)
+        request = context.get('request', UNDEFINED)
+        range = context.get('range', UNDEFINED)
+        prescribers = context.get('prescribers', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n    \r\n<table class="table table-striped table-bordered table-hover">\r\n        <caption style="caption-side: top">*Only the top 100 Prescribers are shown</caption>\r\n        <thead class="thead-dark">\r\n            <tr>\r\n                <th>Name</th>\r\n                <th>Specialty</th>\r\n                <th>Total Prescriptions</th>                       \r\n            </tr>\r\n        </thead>\r\n        <tbody>\r\n')
-        for i in range (len(prescribers)):  
-            __M_writer("                <tr class='clickable-row' data-href=''> \r\n                    <td>")
-            __M_writer(django_mako_plus.ExpressionPostProcessor(self)( prescribers[i].Fname ))
-            __M_writer(' ')
-            __M_writer(django_mako_plus.ExpressionPostProcessor(self)( prescribers[i].Lname ))
-            __M_writer('</td>                     \r\n                    <td>')
+        for i in range (len(prescribers)):
+            __M_writer('                    \r\n                <tr> \r\n')
+            if request.user.has_perm('homepage.view_doctor'):
+                __M_writer("                        <td><a href='/homepage/prescriberDetails/")
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)( prescribers[i].DoctorID ))
+                __M_writer("/'> ")
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)( prescribers[i].Fname ))
+                __M_writer(' ')
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)( prescribers[i].Lname ))
+                __M_writer('</a>  </td>                     \r\n')
+            else:
+                __M_writer("                        <td><a href='/homepage/prescriberDetails/")
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)( prescribers[i].DoctorID ))
+                __M_writer("/'>")
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)( prescribers[i].DoctorID ))
+                __M_writer('</a></td>\r\n')
+            __M_writer('                    <td>')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)( prescribers[i].Specialty ))
             __M_writer('</td>\r\n                    <td>')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)( prescribers[i].TotalPrescriptions ))
-            __M_writer('</td>               \r\n                </tr>          \r\n')
+            __M_writer('</td>    \r\n                            \r\n                </tr>   \r\n                \r\n')
         __M_writer('        </tbody>\r\n\r\n    </table>\r\n   \r\n')
         return ''
     finally:
@@ -78,6 +91,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Trent/intex/homepage/templates/main.prescribers.html", "uri": "main.prescribers.html", "source_encoding": "utf-8", "line_map": {"29": 0, "40": 1, "41": 3, "42": 3, "52": 5, "62": 5, "63": 17, "64": 18, "65": 19, "66": 19, "67": 19, "68": 19, "69": 20, "70": 20, "71": 21, "72": 21, "73": 24, "79": 73}}
+{"filename": "C:/Users/Trent/intex/homepage/templates/main.prescribers.html", "uri": "main.prescribers.html", "source_encoding": "utf-8", "line_map": {"29": 0, "41": 1, "42": 3, "43": 3, "53": 5, "64": 5, "65": 17, "66": 18, "67": 20, "68": 21, "69": 21, "70": 21, "71": 21, "72": 21, "73": 21, "74": 21, "75": 22, "76": 23, "77": 23, "78": 23, "79": 23, "80": 23, "81": 25, "82": 25, "83": 25, "84": 26, "85": 26, "86": 31, "92": 86}}
 __M_END_METADATA
 """
