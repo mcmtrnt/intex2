@@ -22,7 +22,8 @@ def process_request(request, DoctorID):
     for item in drugs:
         mydrugs += hmod.Drug.objects.filter(DrugName = item.DrugName)
 
-        # drugAvg += hmod.DrugDoctor.objects.filter(DrugName = item.DrugName)   
+        # for p in hmod.DrugDoctor.objects.raw('SELECT DrugName, round(AVG(QTY)) FROM homepage_DrugDoctor WHERE DrugName IN (' + item.DrugName + ')'):
+        #     print(p)
 
         url = "https://ussouthcentral.services.azureml.net/workspaces/1280ec3736a7452db2ad1b4ffdf4fee8/services/8ae2f6f36e054367804466a761635e9b/execute"
 
