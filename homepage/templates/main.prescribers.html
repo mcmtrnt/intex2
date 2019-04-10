@@ -14,12 +14,19 @@ ${ django_mako_plus.links(self) }
             </tr>
         </thead>
         <tbody>
-            %for i in range (len(prescribers)):  
-                <tr class='clickable-row' data-href=''> 
-                    <td>${ prescribers[i].Fname } ${ prescribers[i].Lname }</td>                     
+                %for i in range (len(prescribers)):
+                    
+                <tr> 
+                    %if request.user.has_perm('homepage.view_doctor'):
+                        <td><a href='/homepage/prescriberDetails/${ prescribers[i].DoctorID }/'> ${ prescribers[i].Fname } ${ prescribers[i].Lname }</a>  </td>                     
+                    %else:
+                        <td><a href='/homepage/prescriberDetails/${ prescribers[i].DoctorID }/'>${ prescribers[i].DoctorID }</a></td>
+                    %endif
                     <td>${ prescribers[i].Specialty }</td>
-                    <td>${ prescribers[i].TotalPrescriptions }</td>               
-                </tr>          
+                    <td>${ prescribers[i].TotalPrescriptions }</td>    
+                            
+                </tr>   
+                
             %endfor
         </tbody>
 
