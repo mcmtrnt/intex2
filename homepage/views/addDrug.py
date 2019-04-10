@@ -22,6 +22,11 @@ def process_request(request, id):
 
             dd.save()
 
+            p = doctor
+            p.TotalPrescriptions = str(int(p.TotalPrescriptions) + int(form.cleaned_data.get('Qty')))
+
+            p.save()
+
             return HttpResponseRedirect('/homepage/confirmation/') 
     else:
         form = DrugForm()

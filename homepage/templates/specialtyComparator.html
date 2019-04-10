@@ -22,7 +22,7 @@
             </div>
         
             <div class="col-sm-6">
-                    <caption style="caption-side: top">Enter a Prescriber's ID which specialty they relate to most</caption>
+                    <caption style="caption-side: top">Enter a Prescriber's ID to see which specialty they relate to most</caption>
                 <div class="content">
                     <div class="wrapper">
                         <div id="formContent">    
@@ -41,9 +41,8 @@
                 <h4>Most Similar Specialty:</h4>
 
                 <ul>
-                %for i in range (3, len(valueList)):                
-                    <li>${ valueList[i] }</li>                                                     
-                %endfor
+                    <li>Current Specialty: <strong>${ valueList[len(valueList) - 2] }</strong></li>
+                    <li>Most Similar Specialty: <strong>${ valueList[len(valueList) - 1] }</strong></li>
                 </ul>                
 
             </div>

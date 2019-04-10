@@ -41,8 +41,12 @@
                 <h4>Similar Prescribers:</h4>
 
                 <ul>
-                %for i in range (len(doctors)):                
-                    <li><a href='/homepage/prescriberDetails/${ doctors[i].DoctorID }/'>${ doctors[i].Fname } ${ doctors[i].Lname }</a></li>                                                     
+                %for i in range (len(doctors)):     
+                    %if i == 0:
+                        <li><a href='/homepage/prescriberDetails/${ doctors[i].DoctorID }/'>Current Prescriber : <strong>${ doctors[i].Fname } ${ doctors[i].Lname }</strong></a></li> 
+                    %else:
+                        <li><a href='/homepage/prescriberDetails/${ doctors[i].DoctorID }/'><strong>${ doctors[i].Fname } ${ doctors[i].Lname }</strong></a></li> 
+                    %endif                                                    
                 %endfor
                 </ul>
                 

@@ -13,6 +13,8 @@ def process_request(request, DoctorID, DrugName):
     doctor = hmod.Doctor.objects.get(DoctorID = DoctorID)
     drugDoctor = hmod.DrugDoctor.objects.get(DoctorID = DoctorID, DrugName = DrugName)
 
+    oldQuantity = drugDoctor.Qty
+
     if request.method == 'POST':
         form = DrugForm(request.POST)
         if form.is_valid():
@@ -21,6 +23,11 @@ def process_request(request, DoctorID, DrugName):
             p.Qty = form.cleaned_data.get('Qty')
 
             p.save()
+
+            d = doctor
+            d.TotalPrescriptions = str(int(d.TotalPrescriptions) + int(form.cleaned_data.get('Qty')) - int(oldQuantity))
+
+            d.save()
 
             return HttpResponseRedirect('/homepage/confirmation/') #redirect to a receipt type page.
     else:
