@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554856431.8279653
+_modified_time = 1554920863.3301194
 _enable_loop = True
 _template_filename = 'C:/Users/Trent/intex/homepage/templates/prescriberDetails.html'
 _template_uri = 'prescriberDetails.html'
@@ -30,16 +30,16 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        drugs = context.get('drugs', UNDEFINED)
-        len = context.get('len', UNDEFINED)
-        request = context.get('request', UNDEFINED)
-        drugAvg = context.get('drugAvg', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         mydrugs = context.get('mydrugs', UNDEFINED)
-        range = context.get('range', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
+        drugs = context.get('drugs', UNDEFINED)
+        range = context.get('range', UNDEFINED)
+        drugAvg = context.get('drugAvg', UNDEFINED)
+        self = context.get('self', UNDEFINED)
+        len = context.get('len', UNDEFINED)
         prescriber = context.get('prescriber', UNDEFINED)
+        request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
@@ -54,16 +54,16 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        drugs = context.get('drugs', UNDEFINED)
-        len = context.get('len', UNDEFINED)
-        request = context.get('request', UNDEFINED)
-        drugAvg = context.get('drugAvg', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         mydrugs = context.get('mydrugs', UNDEFINED)
-        range = context.get('range', UNDEFINED)
         def content():
             return render_content(context)
+        drugs = context.get('drugs', UNDEFINED)
+        range = context.get('range', UNDEFINED)
+        drugAvg = context.get('drugAvg', UNDEFINED)
+        self = context.get('self', UNDEFINED)
+        len = context.get('len', UNDEFINED)
         prescriber = context.get('prescriber', UNDEFINED)
+        request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n<div class="container-fluid">\r\n        <div class="row content">\r\n          <div class="col-sm-3">\r\n')
         if request.user.has_perm('homepage.view_doctor'):
@@ -112,18 +112,24 @@ def render_content(context,**pageargs):
             __M_writer('                            <th>Qty prescribed by ')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)( prescriber.DoctorID ))
             __M_writer('</th>\r\n')
-        __M_writer('                        <th>Avg Qty prescribed by all doctors</th>                  \r\n                    </tr>\r\n                </thead>\r\n                <tbody>\r\n')
+        __M_writer('                        <th>Avg Qty prescribed by all doctors</th>                 \r\n                    </tr>\r\n                </thead>\r\n                <tbody>\r\n')
         for i in range (len(drugs)):  
             __M_writer("                    <tr> \r\n                        <td><a href='/homepage/drugDetails/")
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)( mydrugs[i].id ))
             __M_writer("/'>")
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)( drugs[i].DrugName ))
-            __M_writer('</a></td>                     \r\n                        <td>')
+            __M_writer('</a></td>  \r\n\r\n                        <td>\r\n                            ')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)( drugs[i].Qty ))
-            __M_writer('</td>\r\n                        <td>')
+            __M_writer('\r\n                            <div style="float:right;"><a href=\'/homepage/editDrug/')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)( prescriber.DoctorID ))
+            __M_writer('/')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)( drugs[i].DrugName ))
+            __M_writer('/\'><button class="btn btn-primary" id="editBtn">Edit</button></a></div>    \r\n                            </td>\r\n                        <td>')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)( drugAvg[i].Qty ))
-            __M_writer('</td>           \r\n                    </tr>          \r\n')
-        __M_writer('                </tbody>\r\n    \r\n            </table>\r\n\r\n            \r\n    \r\n          </div>\r\n\r\n        </div>\r\n    </div>\r\n\r\n')
+            __M_writer('</td>          \r\n                    </tr>          \r\n')
+        __M_writer("                </tbody>\r\n    \r\n            </table>\r\n\r\n            <a href='/homepage/addDrug/")
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( prescriber.DoctorID ))
+        __M_writer('/\'><button class="btn btn-primary" id="addBtn">Add New Prescription</button></a>\r\n\r\n            \r\n    \r\n          </div>\r\n\r\n        </div>\r\n    </div>\r\n\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -131,6 +137,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Trent/intex/homepage/templates/prescriberDetails.html", "uri": "prescriberDetails.html", "source_encoding": "utf-8", "line_map": {"29": 0, "44": 1, "54": 3, "68": 3, "69": 8, "70": 9, "71": 9, "72": 9, "73": 9, "74": 9, "75": 10, "76": 11, "77": 11, "78": 11, "79": 13, "80": 15, "81": 15, "82": 16, "83": 16, "84": 17, "85": 17, "86": 18, "87": 18, "88": 21, "89": 22, "90": 23, "91": 23, "92": 23, "93": 27, "94": 37, "95": 38, "96": 38, "97": 38, "98": 38, "99": 38, "100": 39, "101": 40, "102": 40, "103": 40, "104": 42, "105": 45, "106": 46, "107": 46, "108": 46, "109": 46, "110": 46, "111": 47, "112": 48, "113": 48, "114": 48, "115": 50, "116": 54, "117": 55, "118": 56, "119": 56, "120": 56, "121": 56, "122": 57, "123": 57, "124": 58, "125": 58, "126": 61, "132": 126}}
+{"filename": "C:/Users/Trent/intex/homepage/templates/prescriberDetails.html", "uri": "prescriberDetails.html", "source_encoding": "utf-8", "line_map": {"29": 0, "44": 1, "54": 3, "68": 3, "69": 8, "70": 9, "71": 9, "72": 9, "73": 9, "74": 9, "75": 10, "76": 11, "77": 11, "78": 11, "79": 13, "80": 15, "81": 15, "82": 16, "83": 16, "84": 17, "85": 17, "86": 18, "87": 18, "88": 21, "89": 22, "90": 23, "91": 23, "92": 23, "93": 27, "94": 37, "95": 38, "96": 38, "97": 38, "98": 38, "99": 38, "100": 39, "101": 40, "102": 40, "103": 40, "104": 42, "105": 45, "106": 46, "107": 46, "108": 46, "109": 46, "110": 46, "111": 47, "112": 48, "113": 48, "114": 48, "115": 50, "116": 54, "117": 55, "118": 56, "119": 56, "120": 56, "121": 56, "122": 59, "123": 59, "124": 60, "125": 60, "126": 60, "127": 60, "128": 62, "129": 62, "130": 65, "131": 69, "132": 69, "138": 132}}
 __M_END_METADATA
 """

@@ -1,0 +1,36 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+%if request.user.has_perm('auth.change_user'):
+    <div class="container-fluid">
+        <div class="row content">
+
+            <div class="col-sm-12">
+                <div class="content">
+                    <div class="wrapper">
+                        <div id="formContent"> 
+                            <div>
+                                <p>Edit the quantity of ${ DrugName } for ${ doctor.Fname } ${ doctor.Lname }</p>
+                            </div>
+                            <form method="POST">
+                                ${form.as_table()}
+                                <input type="submit" value="Edit">
+                            </form>                   
+                                                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+%else:
+    <div>
+        <p>
+            You are not authorized to edit prescribers
+        </p>
+    </div>
+%endif
+
+</%block>

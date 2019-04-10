@@ -47,20 +47,26 @@
                         %else:
                             <th>Qty prescribed by ${ prescriber.DoctorID }</th>
                         %endif
-                        <th>Avg Qty prescribed by all doctors</th>                  
+                        <th>Avg Qty prescribed by all doctors</th>                 
                     </tr>
                 </thead>
                 <tbody>
                     %for i in range (len(drugs)):  
                     <tr> 
-                        <td><a href='/homepage/drugDetails/${ mydrugs[i].id }/'>${ drugs[i].DrugName }</a></td>                     
-                        <td>${ drugs[i].Qty }</td>
-                        <td>${ drugAvg[i].Qty }</td>           
+                        <td><a href='/homepage/drugDetails/${ mydrugs[i].id }/'>${ drugs[i].DrugName }</a></td>  
+
+                        <td>
+                            ${ drugs[i].Qty }
+                            <div style="float:right;"><a href='/homepage/editDrug/${ prescriber.DoctorID }/${ drugs[i].DrugName }/'><button class="btn btn-primary" id="editBtn">Edit</button></a></div>    
+                            </td>
+                        <td>${ drugAvg[i].Qty }</td>          
                     </tr>          
                     %endfor
                 </tbody>
     
             </table>
+
+            <a href='/homepage/addDrug/${ prescriber.DoctorID }/'><button class="btn btn-primary" id="addBtn">Add New Prescription</button></a>
 
             
     
