@@ -45,7 +45,7 @@ def process_request(request, DoctorID):
         values = values.replace("\"", "")
         valueList = values.split(',')
  
-        drugAvg.append(valueList[1])
+        drugAvg.append(str(valueList[1]))
 
     context = {
         'prescriber': prescriber,
