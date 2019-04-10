@@ -1,0 +1,34 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-3">
+            <h4>Available Analysis:</h4>
+            <ul>
+                <li><a href='/homepage/amIHighRisk/'>Am I High Risk</a></li>
+                %if request.user.has_perm('homepage.view_doctor'):
+                    <li><a href='/homepage/similarPrescribers/'>Find Similar Prescribers</a></li>
+                %endif
+                <li><a href='/homepage/visualizations/'>Individual Visualizations</a></li>
+                <li><a href='/homepage/maps/'>Map of Overall Prescriptions/Opiods</a></li>
+                <li><a href='/homepage/mapDeaths/'>Map of Opioid Related Deaths</a></li>
+                <li><a href='/homepage/specialtyComparator/'>Specialty Comparator</a></li>
+                <li><a href='/homepage/specialtyVisualization/'>Specialty Visualization</a></li>
+                <li><a href='/homepage/prescribersVisualization/'>Prescribers Visualization</a></li>
+            </ul>
+    
+        </div>
+      
+        <div class="col-sm-9">
+
+                <div class='tableauPlaceholder' id='viz1554915404381' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;M4&#47;M4WYFRJK8&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;M4WYFRJK8' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;M4&#47;M4WYFRJK8&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1554915404381');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+        </div>
+
+    </div>
+</div>
+
+
+</%block>

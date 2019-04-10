@@ -7,15 +7,16 @@
             <div class="col-sm-3">
                 <h4>Available Analysis:</h4>
                 <ul>
-                        <li><a href='/homepage/amIHighRisk/'>Am I High Risk</a></li>
-                        %if request.user.has_perm('homepage.view_doctor'):
-                            <li><a href='/homepage/similarPrescribers/'>Find Similar Prescribers</a></li>
-                        %endif
-                        <li><a href='/homepage/visualizations/'>Visualizations</a></li>
-                        <li><a href='/homepage/maps/'>Map of Overall Prescriptions/Opiods</a></li>
-                        <li><a href='/homepage/mapDeaths/'>Map of Opioid Related Deaths</a></li>
-                        <li><a href='/homepage/specialtyComparator/'>Specialty Comparator</a></li>
-                        <li><a href='/homepage/specialtyVisualization/'>Specialty Visualization</a></li>
+                    <li><a href='/homepage/amIHighRisk/'>Am I High Risk</a></li>
+                    %if request.user.has_perm('homepage.view_doctor'):
+                        <li><a href='/homepage/similarPrescribers/'>Find Similar Prescribers</a></li>
+                    %endif
+                    <li><a href='/homepage/visualizations/'>Individual Visualizations</a></li>
+                    <li><a href='/homepage/maps/'>Map of Overall Prescriptions/Opiods</a></li>
+                    <li><a href='/homepage/mapDeaths/'>Map of Opioid Related Deaths</a></li>
+                    <li><a href='/homepage/specialtyComparator/'>Specialty Comparator</a></li>
+                    <li><a href='/homepage/specialtyVisualization/'>Specialty Visualization</a></li>
+                    <li><a href='/homepage/prescribersVisualization/'>Prescribers Visualization</a></li>
                 </ul>
         
             </div>

@@ -40,7 +40,11 @@
                     %for i in range (len(prescribers)):
                     <%! from homepage import models as hmod %>  
                     <tr> 
-                        <td><a href='/homepage/prescriberDetails/${ myPrescribers[i].DoctorID }/'>${ myPrescribers[i].Fname }</a></td>
+                        %if request.user.has_perm('homepage.view_doctor'):
+                          <td><a href='/homepage/prescriberDetails/${ myPrescribers[i].DoctorID }/'>${ myPrescribers[i].Fname }</a></td>
+                        %else:
+                          <td><a href='/homepage/prescriberDetails/${ myPrescribers[i].DoctorID }/'>${ myPrescribers[i].DoctorID }</a></td>
+                        %endif
                         <td>${ myPrescribers[i].Specialty }</td>                     
                         <td>${ prescribers[i].Qty }</td>
         
