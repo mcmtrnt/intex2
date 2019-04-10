@@ -20,3 +20,9 @@ class DrugDoctor(models.Model):
     DoctorID = models.IntegerField(null=True)
     DrugName = models.TextField(null=True)
     Qty = models.IntegerField(null=True)
+
+class ExtraInfo(models.Model):
+    DoctorID = models.IntegerField(null=True)
+    NumOpioids = models.TextField(null=True)
+    AtRisk = models.TextField(null=True)
+    PrescriberScore = models.TextField(null=True)

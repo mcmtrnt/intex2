@@ -1,0 +1,53 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-3">
+            <h4>Available Analysis:</h4>
+            <ul>
+                <li><a href='/homepage/highestOpioidPrescribers/'>Highest Opioid Prescribers</a></li>
+                <li><a href='/homepage/amIHighRisk/'>Am I High Risk</a></li>
+                %if request.user.has_perm('homepage.view_doctor'):
+                    <li><a href='/homepage/similarPrescribers/'>Find Similar Prescribers</a></li>
+                    <li><a href='/homepage/visualizations/'>Individual Visualizations</a></li>
+                %endif
+                <li><a href='/homepage/maps/'>Map of Overall Prescriptions/Opiods</a></li>
+                <li><a href='/homepage/mapDeaths/'>Map of Opioid Related Deaths</a></li>
+                <li><a href='/homepage/specialtyComparator/'>Specialty Comparator</a></li>
+                <li><a href='/homepage/specialtyVisualization/'>Specialty Visualization</a></li>
+                <li><a href='/homepage/prescribersVisualization/'>Prescribers Visualization</a></li>
+            </ul>
+    
+        </div>
+      
+        <div class="col-sm-9">
+
+            <table class="table table-striped table-bordered table-hover">
+
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>DoctorID</th>
+                            <th>Number of Opioids Prescribed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        %for i in range(len(highest)):
+                        <tr> 
+                            <td><a href='/homepage/prescriberDetails/${ highest[i].DoctorID }/'>${ highest[i].DoctorID }</a></td>
+                            <td>${ highest[i].NumOpioids }</td>
+                        </tr>          
+                        %endfor
+                    </tbody>
+        
+                </table>
+
+
+        </div>
+
+    </div>
+</div>
+
+
+</%block>

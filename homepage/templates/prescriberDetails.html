@@ -16,6 +16,15 @@
                 <li>Credentials: <strong>${ prescriber.Credentials }</strong></li>
                 <li>Location: <strong>${ prescriber.State }</strong></li>
                 <li>Specialty: <strong>${ prescriber.Specialty }</strong></li>
+                <br>
+                <li>Total Prescriptions: <strong>${ prescriber.TotalPrescriptions }</strong></li>
+                <li>Number of Opioids Prescribed: <strong>${ extra.NumOpioids }</strong></li>
+                %if extra.AtRisk  == '1':
+                    <li>At Risk: <strong>Yes</strong></li>
+                %else:
+                <li>At Risk: <strong>No</strong></li>
+                %endif
+                <li>Prescriber Score: <strong>${ extra.PrescriberScore }</strong></li>
             </ul>
 
             %if request.user.has_perm('auth.view_analytics'):
@@ -61,7 +70,7 @@
                                 <div style="float:right;"><a href='/homepage/editDrug/${ prescriber.DoctorID }/${ drugs[i].DrugName }/'><button class="btn btn-primary" id="editBtn">Edit</button></a></div>    
                             %endif
                         </td>
-                        <td>Average: ${ drugAvg[i] }</td>          
+                        <td>${ drugAvg[i] }</td>          
                     </tr>          
                     %endfor
                 </tbody>
