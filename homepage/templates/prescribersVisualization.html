@@ -10,8 +10,8 @@
                 <li><a href='/homepage/amIHighRisk/'>Am I High Risk</a></li>
                 %if request.user.has_perm('homepage.view_doctor'):
                     <li><a href='/homepage/similarPrescribers/'>Find Similar Prescribers</a></li>
+                    <li><a href='/homepage/visualizations/'>Individual Visualizations</a></li>
                 %endif
-                <li><a href='/homepage/visualizations/'>Individual Visualizations</a></li>
                 <li><a href='/homepage/maps/'>Map of Overall Prescriptions/Opiods</a></li>
                 <li><a href='/homepage/mapDeaths/'>Map of Opioid Related Deaths</a></li>
                 <li><a href='/homepage/specialtyComparator/'>Specialty Comparator</a></li>
