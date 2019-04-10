@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554933768.6891854
+_modified_time = 1554934154.9493062
 _enable_loop = True
 _template_filename = 'C:/Users/Trent/intex/homepage/templates/prescriberDetails.html'
 _template_uri = 'prescriberDetails.html'
@@ -30,16 +30,16 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        prescriber = context.get('prescriber', UNDEFINED)
+        drugs = context.get('drugs', UNDEFINED)
+        mydrugs = context.get('mydrugs', UNDEFINED)
+        range = context.get('range', UNDEFINED)
         len = context.get('len', UNDEFINED)
+        drugAvg = context.get('drugAvg', UNDEFINED)
+        prescriber = context.get('prescriber', UNDEFINED)
+        request = context.get('request', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        drugs = context.get('drugs', UNDEFINED)
-        range = context.get('range', UNDEFINED)
-        self = context.get('self', UNDEFINED)
-        mydrugs = context.get('mydrugs', UNDEFINED)
-        request = context.get('request', UNDEFINED)
-        drugAvg = context.get('drugAvg', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
@@ -54,16 +54,16 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        prescriber = context.get('prescriber', UNDEFINED)
+        drugs = context.get('drugs', UNDEFINED)
+        mydrugs = context.get('mydrugs', UNDEFINED)
+        range = context.get('range', UNDEFINED)
         len = context.get('len', UNDEFINED)
+        drugAvg = context.get('drugAvg', UNDEFINED)
+        prescriber = context.get('prescriber', UNDEFINED)
+        request = context.get('request', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         def content():
             return render_content(context)
-        drugs = context.get('drugs', UNDEFINED)
-        range = context.get('range', UNDEFINED)
-        self = context.get('self', UNDEFINED)
-        mydrugs = context.get('mydrugs', UNDEFINED)
-        request = context.get('request', UNDEFINED)
-        drugAvg = context.get('drugAvg', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n<div class="container-fluid">\r\n        <div class="row content">\r\n          <div class="col-sm-3">\r\n')
         if request.user.has_perm('homepage.view_doctor'):
@@ -127,7 +127,7 @@ def render_content(context,**pageargs):
                 __M_writer('/')
                 __M_writer(django_mako_plus.ExpressionPostProcessor(self)( drugs[i].DrugName ))
                 __M_writer('/\'><button class="btn btn-primary" id="editBtn">Edit</button></a></div>    \r\n')
-            __M_writer('                        </td>\r\n                        <td>')
+            __M_writer('                        </td>\r\n                        <td>Average: ')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)( drugAvg[i] ))
             __M_writer('</td>          \r\n                    </tr>          \r\n')
         __M_writer('                </tbody>\r\n    \r\n            </table>\r\n')
