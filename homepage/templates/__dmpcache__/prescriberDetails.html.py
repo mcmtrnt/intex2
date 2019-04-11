@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554934154.9493062
+_modified_time = 1554938723.6115932
 _enable_loop = True
 _template_filename = 'C:/Users/Trent/intex/homepage/templates/prescriberDetails.html'
 _template_uri = 'prescriberDetails.html'
@@ -30,16 +30,17 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        drugs = context.get('drugs', UNDEFINED)
-        mydrugs = context.get('mydrugs', UNDEFINED)
-        range = context.get('range', UNDEFINED)
-        len = context.get('len', UNDEFINED)
-        drugAvg = context.get('drugAvg', UNDEFINED)
         prescriber = context.get('prescriber', UNDEFINED)
-        request = context.get('request', UNDEFINED)
         self = context.get('self', UNDEFINED)
+        drugAvg = context.get('drugAvg', UNDEFINED)
+        mydrugs = context.get('mydrugs', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
+        range = context.get('range', UNDEFINED)
+        len = context.get('len', UNDEFINED)
+        extra = context.get('extra', UNDEFINED)
+        drugs = context.get('drugs', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
@@ -54,16 +55,17 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        drugs = context.get('drugs', UNDEFINED)
-        mydrugs = context.get('mydrugs', UNDEFINED)
-        range = context.get('range', UNDEFINED)
-        len = context.get('len', UNDEFINED)
-        drugAvg = context.get('drugAvg', UNDEFINED)
         prescriber = context.get('prescriber', UNDEFINED)
-        request = context.get('request', UNDEFINED)
         self = context.get('self', UNDEFINED)
+        drugAvg = context.get('drugAvg', UNDEFINED)
+        mydrugs = context.get('mydrugs', UNDEFINED)
         def content():
             return render_content(context)
+        request = context.get('request', UNDEFINED)
+        range = context.get('range', UNDEFINED)
+        len = context.get('len', UNDEFINED)
+        extra = context.get('extra', UNDEFINED)
+        drugs = context.get('drugs', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n<div class="container-fluid">\r\n        <div class="row content">\r\n          <div class="col-sm-3">\r\n')
         if request.user.has_perm('homepage.view_doctor'):
@@ -84,6 +86,17 @@ def render_content(context,**pageargs):
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( prescriber.State ))
         __M_writer('</strong></li>\r\n                <li>Specialty: <strong>')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( prescriber.Specialty ))
+        __M_writer('</strong></li>\r\n                <br>\r\n                <li>Total Prescriptions: <strong>')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( prescriber.TotalPrescriptions ))
+        __M_writer('</strong></li>\r\n                <li>Number of Opioids Prescribed: <strong>')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( extra.NumOpioids ))
+        __M_writer('</strong></li>\r\n')
+        if extra.AtRisk  == '1':
+            __M_writer('                    <li>At Risk: <strong>Yes</strong></li>\r\n')
+        else:
+            __M_writer('                <li>At Risk: <strong>No</strong></li>\r\n')
+        __M_writer('                <li>Prescriber Score: <strong>')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( extra.PrescriberScore ))
         __M_writer('</strong></li>\r\n            </ul>\r\n\r\n')
         if request.user.has_perm('auth.view_analytics'):
             if request.user.has_perm('homepage.view_doctor'):
@@ -127,7 +140,7 @@ def render_content(context,**pageargs):
                 __M_writer('/')
                 __M_writer(django_mako_plus.ExpressionPostProcessor(self)( drugs[i].DrugName ))
                 __M_writer('/\'><button class="btn btn-primary" id="editBtn">Edit</button></a></div>    \r\n')
-            __M_writer('                        </td>\r\n                        <td>Average: ')
+            __M_writer('                        </td>\r\n                        <td>')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)( drugAvg[i] ))
             __M_writer('</td>          \r\n                    </tr>          \r\n')
         __M_writer('                </tbody>\r\n    \r\n            </table>\r\n')
@@ -143,6 +156,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Trent/intex/homepage/templates/prescriberDetails.html", "uri": "prescriberDetails.html", "source_encoding": "utf-8", "line_map": {"29": 0, "44": 1, "54": 3, "68": 3, "69": 8, "70": 9, "71": 9, "72": 9, "73": 9, "74": 9, "75": 10, "76": 11, "77": 11, "78": 11, "79": 13, "80": 15, "81": 15, "82": 16, "83": 16, "84": 17, "85": 17, "86": 18, "87": 18, "88": 21, "89": 22, "90": 23, "91": 23, "92": 23, "93": 27, "94": 37, "95": 38, "96": 38, "97": 38, "98": 38, "99": 38, "100": 39, "101": 40, "102": 40, "103": 40, "104": 42, "105": 45, "106": 46, "107": 46, "108": 46, "109": 46, "110": 46, "111": 47, "112": 48, "113": 48, "114": 48, "115": 50, "116": 54, "117": 55, "118": 56, "119": 56, "120": 56, "121": 56, "122": 59, "123": 59, "124": 60, "125": 61, "126": 61, "127": 61, "128": 61, "129": 61, "130": 63, "131": 64, "132": 64, "133": 67, "134": 70, "135": 71, "136": 71, "137": 71, "138": 73, "144": 138}}
+{"filename": "C:/Users/Trent/intex/homepage/templates/prescriberDetails.html", "uri": "prescriberDetails.html", "source_encoding": "utf-8", "line_map": {"29": 0, "45": 1, "55": 3, "70": 3, "71": 8, "72": 9, "73": 9, "74": 9, "75": 9, "76": 9, "77": 10, "78": 11, "79": 11, "80": 11, "81": 13, "82": 15, "83": 15, "84": 16, "85": 16, "86": 17, "87": 17, "88": 18, "89": 18, "90": 20, "91": 20, "92": 21, "93": 21, "94": 22, "95": 23, "96": 24, "97": 25, "98": 27, "99": 27, "100": 27, "101": 30, "102": 31, "103": 32, "104": 32, "105": 32, "106": 36, "107": 46, "108": 47, "109": 47, "110": 47, "111": 47, "112": 47, "113": 48, "114": 49, "115": 49, "116": 49, "117": 51, "118": 54, "119": 55, "120": 55, "121": 55, "122": 55, "123": 55, "124": 56, "125": 57, "126": 57, "127": 57, "128": 59, "129": 63, "130": 64, "131": 65, "132": 65, "133": 65, "134": 65, "135": 68, "136": 68, "137": 69, "138": 70, "139": 70, "140": 70, "141": 70, "142": 70, "143": 72, "144": 73, "145": 73, "146": 76, "147": 79, "148": 80, "149": 80, "150": 80, "151": 82, "157": 151}}
 __M_END_METADATA
 """
