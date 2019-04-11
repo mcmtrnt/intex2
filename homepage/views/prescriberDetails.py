@@ -84,6 +84,8 @@ def related(request, param):
 
     response = requests.request("POST", url, data=payload, headers=headers, params=querystring)
 
+    print(response.text)
+
     start = str(response.text).find('Values":[["')
     s = str(response.text)[start:]            
     end = str(response.text).find(']]')
