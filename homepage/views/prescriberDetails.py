@@ -29,33 +29,7 @@ def process_request(request, DoctorID):
 
         drugAvg.append(str(round(avg.get('Qty__avg'), 2)))
 
-        # for p in hmod.DrugDoctor.objects.raw('SELECT homepage_drugdoctor.DrugName, round(AVG(homepage_drugdoctor.Qty)) FROM intex.homepage_drugdoctor WHERE ' + item.DrugName + ' IN homepage_drugdoctor.DrugName'):
-        #     print(p)
 
-        # url = "https://ussouthcentral.services.azureml.net/workspaces/1280ec3736a7452db2ad1b4ffdf4fee8/services/8ae2f6f36e054367804466a761635e9b/execute"
-
-        # querystring = {"api-version":"2.0","details":"true"}
-
-        # payload = "{\r\n  \"Inputs\": {\r\n    \"input1\": {\r\n      \"ColumnNames\": [\r\n        \"Drug\"\r\n      ],\r\n      \"Values\": [\r\n        [\r\n          \"" + item.DrugName + "\"\r\n        ]\r\n      ]\r\n    }\r\n  }"
-        # headers = {
-        # 'Authorization': "bearer kiolgaq8+MqRa3HcihEwgpfZH08vH97G42L9KVwmg89pmGqN8iVgFq9/ud4r5GlGbpNvyivDQ5OmO0ObyHHdew==",
-        # 'Content-Type': "application/json",
-        # 'cache-control': "no-cache",
-        # 'Postman-Token': "7ec9f02f-c398-43bd-9943-604962eb7e06"
-        # }
-
-        # response = requests.request("POST", url, data=payload, headers=headers, params=querystring)
-
-        # start = str(response.text).find('Values":[["')
-        # s = str(response.text)[start:]            
-        # end = str(response.text).find(']]')
-        # values = str(response.text)[start + 11 : end - 1]
-        # values = values.replace("\"", "")
-        # valueList = values.split(',')
- 
-        # drugAvg.append(str(valueList[1]))
-    print(drugAvg)
-    print(drugAvg[0])
     context = {
         'prescriber': prescriber,
         'drugs': drugs,
