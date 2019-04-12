@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555040870.339215
+_modified_time = 1555020587.8262432
 _enable_loop = True
 _template_filename = 'C:/Users/Trent/intex/homepage/templates/highestOpioidPrescribers.html'
 _template_uri = 'highestOpioidPrescribers.html'
@@ -30,12 +30,12 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        highest = context.get('highest', UNDEFINED)
-        request = context.get('request', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
         len = context.get('len', UNDEFINED)
         range = context.get('range', UNDEFINED)
+        highest = context.get('highest', UNDEFINED)
+        request = context.get('request', UNDEFINED)
         self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
@@ -51,12 +51,12 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        highest = context.get('highest', UNDEFINED)
-        request = context.get('request', UNDEFINED)
         def content():
             return render_content(context)
         len = context.get('len', UNDEFINED)
         range = context.get('range', UNDEFINED)
+        highest = context.get('highest', UNDEFINED)
+        request = context.get('request', UNDEFINED)
         self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n<div class="container-fluid">\r\n    <div class="row content">\r\n        <div class="col-sm-3">\r\n            <h4>Available Analysis:</h4>\r\n            <ul>\r\n                <li><a href=\'/homepage/highestOpioidPrescribers/\'>Highest Opioid Prescribers</a></li>\r\n                <li><a href=\'/homepage/opioidVisualization/\'>Opioid/Prescriptions Visualization</a></li>\r\n                <li><a href=\'/homepage/amIHighRisk/\'>Am I High Risk</a></li>\r\n')
