@@ -27,7 +27,7 @@ def process_request(request, DoctorID):
 
         avg = hmod.DrugDoctor.objects.filter(DrugName = item.DrugName).aggregate(Avg('Qty'))
 
-        drugAvg.append(str(round(avg.get('Qty__avg'), 2)))
+        drugAvg.append(str(round(avg.get('Qty__avg'), 0)))
 
 
     context = {

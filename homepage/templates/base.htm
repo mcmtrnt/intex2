@@ -5,7 +5,8 @@
     <head>
 
         <title>OpioInfo</title>
-        <link rel="icon" href="/static/homepage/media/3b375d48-0186-450c-aa3c-e7bbf013b0de.png/">
+        <link rel="icon" href="${ STATIC_URL }homepage/media/3b375d48-0186-450c-aa3c-e7bbf013b0de.png/">
+        
 
         ## add any site-wide scripts or CSS here; for example, jquery:
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -26,9 +27,10 @@
 
         <header>
             <div class="nav navbar-default custom-nav justify-content-between">
-                <div>            
-                    <img style="width: 4rem; height: 4rem;" src="/static/homepage/media/3b375d48-0186-450c-aa3c-e7bbf013b0de.png/"/>
-                </div>   
+                <div>
+                    <img style="width: 4rem; height: 4rem;" src="${ STATIC_URL }homepage/media/3b375d48-0186-450c-aa3c-e7bbf013b0de.png/"/>
+                </div>
+                     
                     <li class="nav-item active">
                         <a class="btn btn-outline-primary" href="/homepage/index/">Home <span class="sr-only">(current)</span></a>
                     </li>
