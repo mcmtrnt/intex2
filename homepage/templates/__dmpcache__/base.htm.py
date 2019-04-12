@@ -5,11 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-<<<<<<< HEAD
-_modified_time = 1555041216.5583491
-=======
 _modified_time = 1555042161.6056333
->>>>>>> trent
 _enable_loop = True
 _template_filename = 'C:/Users/Trent/intex/homepage/templates/base.htm'
 _template_uri = 'base.htm'
