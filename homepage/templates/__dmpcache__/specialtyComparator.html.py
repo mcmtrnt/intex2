@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554930291.5981543
+_modified_time = 1555040892.6454568
 _enable_loop = True
 _template_filename = 'C:/Users/Trent/intex/homepage/templates/specialtyComparator.html'
 _template_uri = 'specialtyComparator.html'
@@ -30,13 +30,13 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        len = context.get('len', UNDEFINED)
         request = context.get('request', UNDEFINED)
-        valueList = context.get('valueList', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
+        len = context.get('len', UNDEFINED)
         form = context.get('form', UNDEFINED)
+        valueList = context.get('valueList', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
@@ -51,17 +51,17 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        len = context.get('len', UNDEFINED)
         request = context.get('request', UNDEFINED)
-        valueList = context.get('valueList', UNDEFINED)
         def content():
             return render_content(context)
-        self = context.get('self', UNDEFINED)
+        len = context.get('len', UNDEFINED)
         form = context.get('form', UNDEFINED)
+        valueList = context.get('valueList', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n')
         if request.user.has_perm('auth.view_analytics'):
-            __M_writer('    <div class="container-fluid">\r\n        <div class="row content">\r\n            <div class="col-sm-3">\r\n                <h4>Available Analysis:</h4>\r\n                <ul>\r\n                    <li><a href=\'/homepage/amIHighRisk/\'>Am I High Risk</a></li>\r\n')
+            __M_writer('    <div class="container-fluid">\r\n        <div class="row content">\r\n            <div class="col-sm-3">\r\n                <h4>Available Analysis:</h4>\r\n                <ul>\r\n                    <li><a href=\'/homepage/highestOpioidPrescribers/\'>Highest Opioid Prescribers</a></li>\r\n                    <li><a href=\'/homepage/opioidVisualization/\'>Opioid/Prescriptions Visualization</a></li>\r\n                    <li><a href=\'/homepage/amIHighRisk/\'>Am I High Risk</a></li>\r\n')
             if request.user.has_perm('homepage.view_doctor'):
                 __M_writer("                        <li><a href='/homepage/similarPrescribers/'>Find Similar Prescribers</a></li>        \r\n                        <li><a href='/homepage/visualizations/'>Individual Visualizations</a></li>\r\n")
             __M_writer('                    <li><a href=\'/homepage/maps/\'>Map of Overall Prescriptions/Opiods</a></li>\r\n                    <li><a href=\'/homepage/mapDeaths/\'>Map of Opioid Related Deaths</a></li>\r\n                    <li><a href=\'/homepage/specialtyComparator/\'>Specialty Comparator</a></li>\r\n                    <li><a href=\'/homepage/specialtyVisualization/\'>Specialty Visualization</a></li>\r\n                    <li><a href=\'/homepage/prescribersVisualization/\'>Prescribers Visualization</a></li>\r\n                </ul>\r\n        \r\n            </div>\r\n        \r\n            <div class="col-sm-6">\r\n                    <caption style="caption-side: top">Enter a Prescriber\'s ID to see which specialty they relate to most</caption>\r\n                <div class="content">\r\n                    <div class="wrapper">\r\n                        <div id="formContent">    \r\n                                \r\n                            <form method="POST">\r\n                                    ')
@@ -84,6 +84,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Trent/intex/homepage/templates/specialtyComparator.html", "uri": "specialtyComparator.html", "source_encoding": "utf-8", "line_map": {"29": 0, "41": 1, "51": 3, "62": 3, "63": 4, "64": 5, "65": 11, "66": 12, "67": 15, "68": 31, "69": 31, "70": 44, "71": 45, "72": 45, "73": 45, "74": 46, "75": 46, "76": 48, "77": 54, "78": 55, "79": 57, "85": 79}}
+{"filename": "C:/Users/Trent/intex/homepage/templates/specialtyComparator.html", "uri": "specialtyComparator.html", "source_encoding": "utf-8", "line_map": {"29": 0, "41": 1, "51": 3, "62": 3, "63": 4, "64": 5, "65": 13, "66": 14, "67": 17, "68": 33, "69": 33, "70": 46, "71": 47, "72": 47, "73": 47, "74": 48, "75": 48, "76": 50, "77": 56, "78": 57, "79": 59, "85": 79}}
 __M_END_METADATA
 """
