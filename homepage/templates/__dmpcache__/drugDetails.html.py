@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554914282.6563933
+_modified_time = 1555019273.4543514
 _enable_loop = True
 _template_filename = 'C:/Users/Trent/intex/homepage/templates/drugDetails.html'
 _template_uri = 'drugDetails.html'
@@ -34,15 +34,15 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        self = context.get('self', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
         request = context.get('request', UNDEFINED)
-        myPrescribers = context.get('myPrescribers', UNDEFINED)
         len = context.get('len', UNDEFINED)
         drugs = context.get('drugs', UNDEFINED)
-        prescribers = context.get('prescribers', UNDEFINED)
         range = context.get('range', UNDEFINED)
+        myPrescribers = context.get('myPrescribers', UNDEFINED)
+        prescribers = context.get('prescribers', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
@@ -57,15 +57,15 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        self = context.get('self', UNDEFINED)
         def content():
             return render_content(context)
-        self = context.get('self', UNDEFINED)
         request = context.get('request', UNDEFINED)
-        myPrescribers = context.get('myPrescribers', UNDEFINED)
         len = context.get('len', UNDEFINED)
         drugs = context.get('drugs', UNDEFINED)
-        prescribers = context.get('prescribers', UNDEFINED)
         range = context.get('range', UNDEFINED)
+        myPrescribers = context.get('myPrescribers', UNDEFINED)
+        prescribers = context.get('prescribers', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n<div class="container-fluid">\r\n        <div class="row content">\r\n          <div class="col-sm-3">\r\n            <h4><b>')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( drugs.DrugName ))

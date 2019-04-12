@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554836968.7839012
+_modified_time = 1555020776.632193
 _enable_loop = True
 _template_filename = 'C:/Users/Trent/intex/homepage/templates/main.html'
 _template_uri = 'main.html'
@@ -30,14 +30,14 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        request = context.get('request', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
         opioids = context.get('opioids', UNDEFINED)
-        prescribers = context.get('prescribers', UNDEFINED)
         len = context.get('len', UNDEFINED)
         range = context.get('range', UNDEFINED)
+        prescribers = context.get('prescribers', UNDEFINED)
+        request = context.get('request', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
@@ -52,14 +52,14 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        request = context.get('request', UNDEFINED)
         def content():
             return render_content(context)
-        self = context.get('self', UNDEFINED)
         opioids = context.get('opioids', UNDEFINED)
-        prescribers = context.get('prescribers', UNDEFINED)
         len = context.get('len', UNDEFINED)
         range = context.get('range', UNDEFINED)
+        prescribers = context.get('prescribers', UNDEFINED)
+        request = context.get('request', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n<div class="container-fluid">\r\n    <div class="row content">\r\n      <div class="col-sm-6">\r\n        <h4>Prescribers</h4>\r\n        \r\n')
         if request.user.has_perm('auth.can_search'):

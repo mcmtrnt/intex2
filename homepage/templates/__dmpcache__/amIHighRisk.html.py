@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554941079.162557
+_modified_time = 1555020509.7602408
 _enable_loop = True
 _template_filename = 'C:/Users/Trent/intex/homepage/templates/amIHighRisk.html'
 _template_uri = 'amIHighRisk.html'
@@ -32,11 +32,11 @@ def render_body(context,**pageargs):
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         def content():
             return render_content(context._locals(__M_locals))
-        atRisk = context.get('atRisk', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         form = context.get('form', UNDEFINED)
         request = context.get('request', UNDEFINED)
         chance = context.get('chance', UNDEFINED)
+        self = context.get('self', UNDEFINED)
+        atRisk = context.get('atRisk', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
@@ -53,11 +53,11 @@ def render_content(context,**pageargs):
     try:
         def content():
             return render_content(context)
-        atRisk = context.get('atRisk', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         form = context.get('form', UNDEFINED)
         request = context.get('request', UNDEFINED)
         chance = context.get('chance', UNDEFINED)
+        self = context.get('self', UNDEFINED)
+        atRisk = context.get('atRisk', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n')
         if request.user.has_perm('auth.view_analytics'):
